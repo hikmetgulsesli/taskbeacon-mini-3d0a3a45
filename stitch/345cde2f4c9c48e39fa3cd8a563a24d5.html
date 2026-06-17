@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskBeacon Mini - Settings and Preferences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#303032",
+                        "on-surface": "#1b1b1d",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "tertiary": "#000000",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-container": "#818486",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-variant": "#e4e2e4",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "surface-container-low": "#f6f3f5",
+                        "on-secondary-container": "#57657b",
+                        "background": "#fcf8fa",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "tertiary-container": "#191c1e",
+                        "inverse-primary": "#bec6e0",
+                        "secondary-container": "#d5e3fd",
+                        "secondary-fixed": "#d5e3fd",
+                        "surface-container": "#f0edef",
+                        "outline-variant": "#c6c6cd",
+                        "on-background": "#1b1b1d",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-surface-variant": "#45464d",
+                        "surface-tint": "#565e74",
+                        "secondary": "#515f74",
+                        "primary-container": "#131b2e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed": "#e0e3e5",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#7c839b",
+                        "surface-dim": "#dcd9db",
+                        "surface-container-highest": "#e4e2e4",
+                        "outline": "#76777d",
+                        "on-primary-fixed": "#131b2e",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#eae7e9",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface": "#fcf8fa",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf8fa",
+                        "on-secondary-fixed": "#0d1c2f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "16px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "xl": "24px",
+                        "md": "12px",
+                        "gutter": "12px",
+                        "margin-mobile": "16px",
+                        "sidebar-width": "240px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-xs": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "label-xs": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom Checkbox Toggle */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #000000;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #000000;
+        }
+        
+        /* Toast Animation */
+        @keyframes slideInUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        .toast-enter { animation: slideInUp 0.3s ease-out forwards; }
+        .toast-exit { animation: fadeOut 0.3s ease-in forwards; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen overflow-hidden flex flex-col antialiased">
+<!-- TopNavBar (Web) -->
+<header class="hidden md:flex justify-between items-center px-lg py-sm w-full z-50 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="font-display-sm text-display-sm font-bold text-primary">TaskBeacon Mini</span>
+</div>
+<div class="flex items-center gap-md">
+<button aria-label="add" class="text-primary hover:bg-surface-container transition-colors active:scale-95 duration-150 p-sm rounded">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button aria-label="settings" class="text-primary hover:bg-surface-container transition-colors active:scale-95 duration-150 p-sm rounded">
+<span class="material-symbols-outlined icon-fill" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close up portrait of a professional individual looking directly at the camera. The lighting is soft and natural, emphasizing a calm and focused demeanor. The background is a blurred office environment, suggesting a modern, clean workspace. The overall tone is approachable yet serious, aligning with a productivity-focused tool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcCZlkmzBLx5apReymCjqTix1-cWXIL8GruwmrZieHWt3iX7EvF7yI6JajLsUBpT0kK0rlgMSe1m9aKwbq6DkO99T6IVs66-ZLWN2fhQaI_JSkl2rl9kWODr40W08H-HLu9ZT69dMmdL0cyrurb5-Y9VV6SIil5bUwOSwGFONuzKAhi_ztw6m1ldrDL6WRheEyhysqEtpyJ7E4Tr9Yk9QtOejO8y0CRpWeY_EZC6g2_iIpn019zBXCkaB32JGhL87fB9Qdwo4aV-bn"/>
+</div>
+</div>
+</header>
+<!-- TopNavBar (Mobile Pivot) -->
+<header class="md:hidden flex justify-between items-center px-lg py-sm w-full z-50 bg-surface border-b border-outline-variant fixed top-0 left-0 right-0">
+<span class="font-display-sm text-display-sm font-bold text-primary">TaskBeacon Mini</span>
+<button aria-label="close" class="text-primary p-sm">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<div class="flex flex-1 overflow-hidden md:mt-0 mt-[60px]">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full pt-20 pb-lg px-md fixed left-0 top-0 w-sidebar-width bg-surface-container-low border-r border-outline-variant z-40">
+<div class="mb-xl flex items-center gap-md px-sm">
+<div class="w-10 h-10 rounded bg-primary text-on-primary flex items-center justify-center font-bold">
+                    W
+                 </div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Workspace</h2>
+<p class="font-label-xs text-label-xs text-on-surface-variant">Production Unit A</p>
+</div>
+</div>
+<button class="mb-xl bg-primary text-on-primary font-body-md py-sm px-md rounded hover:bg-inverse-surface transition-colors w-full text-left flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                New Project
+            </button>
+<nav class="flex-1 flex flex-col gap-xs">
+<!-- Settings/Preferences intent: Sub-page, no direct tab match, so we highlight nothing to prioritize canvas, but per rules if forced, we don't force. 
+                     Since this is a distinct settings page (transactional/focused task), the active nav rule says "suppress navigation to prioritize canvas". 
+                     However, the layout includes the sidebar in desktop for structural continuity, so all items remain inactive. -->
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-secondary-container hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="assignment">assignment</span>
+                    Tasks
+                </a>
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-secondary-container hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span>
+                    Timeline
+                </a>
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-secondary-container hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="folder_open">folder_open</span>
+                    Projects
+                </a>
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-secondary-container hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="analytics">analytics</span>
+                    Reports
+                </a>
+</nav>
+<div class="mt-auto flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-secondary-container hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+                    Support
+                </a>
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-secondary-container hover:bg-surface-container-high transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="archive">archive</span>
+                    Archive
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-sidebar-width overflow-y-auto bg-background p-margin-mobile md:p-xl flex justify-center">
+<div class="max-w-[720px] w-full flex flex-col gap-xl pb-24">
+<!-- Page Header -->
+<div class="flex flex-col gap-base border-b border-outline-variant pb-md">
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Settings and Preferences</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Configure your workspace defaults, views, and notifications.</p>
+</div>
+<!-- Settings Sections (Bento-style grid) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Default View Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded p-lg flex flex-col gap-md col-span-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<h3 class="font-label-md text-label-md text-on-surface mb-xs">Default View</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Choose how tasks are presented initially.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="view_list">view_list</span>
+</div>
+<div class="flex flex-col gap-sm mt-sm">
+<label class="flex items-center gap-md cursor-pointer group">
+<input checked="" class="w-4 h-4 text-primary border-outline focus:ring-primary focus:ring-offset-background bg-surface-container-lowest" name="default_view" type="radio" value="list"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">List View (Compact)</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input class="w-4 h-4 text-primary border-outline focus:ring-primary focus:ring-offset-background bg-surface-container-lowest" name="default_view" type="radio" value="board"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Board View (Kanban)</span>
+</label>
+</div>
+</section>
+<!-- Saved Filters Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded p-lg flex flex-col gap-md col-span-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<h3 class="font-label-md text-label-md text-on-surface mb-xs">Saved Filters</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage default filter application.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</span>
+</div>
+<div class="mt-sm flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Auto-apply "My Tasks"</span>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-surface-container-lowest border border-outline-variant appearance-none cursor-pointer z-10 transition-transform duration-200" id="toggle_my_tasks" name="toggle_my_tasks" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-primary cursor-pointer transition-colors duration-200" for="toggle_my_tasks"></label>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Exclude "Blocked"</span>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-surface-container-lowest border border-outline-variant appearance-none cursor-pointer z-10 transition-transform duration-200" id="toggle_blocked" name="toggle_blocked" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200" for="toggle_blocked"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Notifications Card (Full Width) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded p-lg flex flex-col gap-md col-span-1 md:col-span-2">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<h3 class="font-label-md text-label-md text-on-surface mb-xs">Notification Frequency</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Control when and how you are alerted.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</div>
+<div class="mt-sm">
+<div class="flex flex-col gap-base">
+<label class="font-label-xs text-label-xs text-on-surface-variant" for="notif_freq">Email Digest</label>
+<select class="bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm text-body-sm rounded focus:ring-2 focus:ring-primary focus:border-primary block w-full p-sm transition-shadow" id="notif_freq">
+<option value="realtime">Real-time (Immediate)</option>
+<option value="hourly">Hourly Summary</option>
+<option selected="" value="daily">Daily Digest</option>
+<option value="never">Never (Muted)</option>
+</select>
+</div>
+<div class="mt-md flex flex-col gap-sm">
+<label class="flex items-center gap-md cursor-pointer group">
+<input checked="" class="w-4 h-4 text-primary border-outline rounded focus:ring-primary focus:ring-offset-background bg-surface-container-lowest" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">In-app Mentions</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input class="w-4 h-4 text-primary border-outline rounded focus:ring-primary focus:ring-offset-background bg-surface-container-lowest" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Status Changes on Owned Tasks</span>
+</label>
+</div>
+</div>
+</section>
+</div>
+<!-- Action Area -->
+<div class="flex items-center justify-between mt-md pt-md border-t border-outline-variant">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-sm px-md rounded hover:bg-surface-container" id="btn-reset">
+                        Reset to Defaults
+                    </button>
+<button class="bg-primary text-on-primary font-label-md text-label-md py-sm px-xl rounded hover:bg-inverse-surface transition-colors active:scale-95 duration-150" id="btn-save">
+                        Save Preferences
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- Toast Notification (Hidden by default) -->
+<div class="fixed bottom-lg left-1/2 transform -translate-x-1/2 z-50 hidden" id="toast-container">
+<div class="bg-inverse-surface text-on-secondary px-lg py-sm rounded border border-outline-variant shadow-sm flex items-center gap-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-sm text-body-sm">Preferences Saved</span>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const saveBtn = document.getElementById('btn-save');
+            const resetBtn = document.getElementById('btn-reset');
+            const toast = document.getElementById('toast-container');
+
+            saveBtn.addEventListener('click', () => {
+                // Show toast
+                toast.classList.remove('hidden');
+                toast.classList.add('toast-enter');
+                
+                // Hide toast after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('toast-enter');
+                    toast.classList.add('toast-exit');
+                    
+                    setTimeout(() => {
+                        toast.classList.add('hidden');
+                        toast.classList.remove('toast-exit');
+                    }, 300); // Wait for exit animation to finish
+                }, 3000);
+            });
+
+            resetBtn.addEventListener('click', () => {
+                // Simulate resetting forms
+                document.querySelector('input[name="default_view"][value="list"]').checked = true;
+                document.getElementById('toggle_my_tasks').checked = false;
+                document.getElementById('toggle_my_tasks').nextElementSibling.classList.replace('bg-primary', 'bg-surface-variant');
+                document.getElementById('toggle_blocked').checked = false;
+                document.getElementById('notif_freq').value = 'daily';
+            });
+            
+            // Handle custom toggle visual state (vanilla js for extra robustness, though CSS handles most of it)
+            const toggles = document.querySelectorAll('.toggle-checkbox');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('change', (e) => {
+                    const label = e.target.nextElementSibling;
+                    if(e.target.checked) {
+                        label.classList.remove('bg-surface-variant');
+                        label.classList.add('bg-primary');
+                    } else {
+                        label.classList.remove('bg-primary');
+                        label.classList.add('bg-surface-variant');
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

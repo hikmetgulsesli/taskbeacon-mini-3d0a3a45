@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "c9964fa1273a4d48bc8257a03514238b",
+    "name": "Record Editor - TaskBeacon Mini",
+    "type": "form",
+    "description": "Record Editor - TaskBeacon Mini screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "c55bb08e1eb6443887ca29b7a14e58bf",
+    "name": "Empty and Error Recovery - TaskBeacon Mini",
+    "type": "error",
+    "description": "Empty and Error Recovery - TaskBeacon Mini screen",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "641fdd8bd96d49439159b6912ea0314a",
+    "name": "Record Operations - TaskBeacon Mini",
+    "type": "app-screen",
+    "description": "Record Operations - TaskBeacon Mini screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "345cde2f4c9c48e39fa3cd8a563a24d5",
+    "name": "Settings and Preferences - TaskBeacon Mini",
+    "type": "settings",
+    "description": "Settings and Preferences - TaskBeacon Mini screen",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  }
+]

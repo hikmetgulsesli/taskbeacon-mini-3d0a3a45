@@ -1,0 +1,46 @@
+[
+  {
+    "screenId": "c9964fa1273a4d48bc8257a03514238b",
+    "title": "Record Editor - TaskBeacon Mini",
+    "htmlFile": "c9964fa1273a4d48bc8257a03514238b.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzlmZDAxM2FmNTNhNjQ1ODdhNGRlYjdkMjZkOWVkZWViEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxMTIwOTc1ODM1MjE5ODgyNjA2Ng&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/taskbeacon-mini-3d0a3a45/stitch/c9964fa1273a4d48bc8257a03514238b.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "c55bb08e1eb6443887ca29b7a14e58bf",
+    "title": "Empty and Error Recovery - TaskBeacon Mini",
+    "htmlFile": "c55bb08e1eb6443887ca29b7a14e58bf.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2VmOTY1NTYzYTgxMTQzMjdhNzkyNDJiOTU3OGI3ZWQ5EgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxMTIwOTc1ODM1MjE5ODgyNjA2Ng&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/taskbeacon-mini-3d0a3a45/stitch/c55bb08e1eb6443887ca29b7a14e58bf.html",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "641fdd8bd96d49439159b6912ea0314a",
+    "title": "Record Operations - TaskBeacon Mini",
+    "htmlFile": "641fdd8bd96d49439159b6912ea0314a.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzYyZjI5NWYwMGQxOTRkNmE4YjYyODZiNDU0OTk2NWRkEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxMTIwOTc1ODM1MjE5ODgyNjA2Ng&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/taskbeacon-mini-3d0a3a45/stitch/641fdd8bd96d49439159b6912ea0314a.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "345cde2f4c9c48e39fa3cd8a563a24d5",
+    "title": "Settings and Preferences - TaskBeacon Mini",
+    "htmlFile": "345cde2f4c9c48e39fa3cd8a563a24d5.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzcwZTc5MDI2MmQxMjQ1MTY4YjRjMmY3MDVmY2Q2MGEyEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxMTIwOTc1ODM1MjE5ODgyNjA2Ng&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/taskbeacon-mini-3d0a3a45/stitch/345cde2f4c9c48e39fa3cd8a563a24d5.html",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  }
+]
